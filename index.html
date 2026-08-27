@@ -4,11 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>India Digital Business Profile</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- QR -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+<!-- PNG -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -27,24 +31,12 @@ margin:auto;
 padding:16px
 }
 
-.top{
-text-align:center;
-margin-bottom:18px
-}
-
-.top h1{
-margin:0;
-font-size:27px
-}
-
-.top p{
-margin:6px 0;
-font-size:12px;
-color:#667085
-}
+.top{text-align:center;margin-bottom:18px}
+.top h1{margin:0;font-size:27px}
+.top p{margin:6px 0;color:#667085;font-size:12px}
 
 .panel{
-background:white;
+background:#fff;
 padding:16px;
 border-radius:12px;
 margin-bottom:20px;
@@ -63,14 +55,14 @@ grid-template-columns:1fr 1fr;
 gap:10px
 }
 
-.form input,
-.form textarea{
+.form input,.form textarea{
 width:100%;
 padding:11px;
 border:1px solid #d0d5dd;
 border-radius:8px;
 font-size:13px;
-outline:none
+outline:none;
+font-family:Arial
 }
 
 .form textarea{
@@ -78,9 +70,7 @@ min-height:75px;
 resize:vertical
 }
 
-.full{
-grid-column:1/-1
-}
+.full{grid-column:1/-1}
 
 .cards{
 display:flex;
@@ -92,7 +82,7 @@ flex-wrap:wrap
 .card{
 width:490px;
 min-height:350px;
-background:white;
+background:#fff;
 border-radius:16px;
 overflow:hidden;
 position:relative;
@@ -136,7 +126,7 @@ align-items:center;
 justify-content:center;
 position:relative;
 overflow:hidden;
-background:white
+background:#fff
 }
 
 .logo:after{
@@ -161,7 +151,7 @@ opacity:.22
 .idp{
 font-weight:bold;
 font-size:10px;
-background:white;
+background:#fff;
 padding:3px;
 z-index:2
 }
@@ -230,9 +220,7 @@ border-radius:5px;
 cursor:pointer
 }
 
-.field:hover{
-background:#f5f7fa
-}
+.field:hover{background:#f5f7fa}
 
 .field label{
 display:block;
@@ -248,9 +236,7 @@ font-size:8.5px;
 word-break:break-word
 }
 
-.business-name{
-font-size:11px!important
-}
+.business-name{font-size:11px!important}
 
 .business-id{
 margin-top:13px;
@@ -269,9 +255,7 @@ border-bottom:1px solid #dfe3e8;
 margin-bottom:13px
 }
 
-.section{
-margin-bottom:12px
-}
+.section{margin-bottom:12px}
 
 .section-title{
 font-size:8px;
@@ -280,8 +264,7 @@ text-transform:uppercase;
 margin-bottom:6px
 }
 
-.services,
-.address{
+.services,.address{
 background:#fafbfc;
 border:1px solid #e4e7ec;
 border-radius:8px;
@@ -331,16 +314,20 @@ padding:9px
 }
 
 #qrcode{
-width:70px;
-height:70px;
-background:white;
-padding:4px;
+width:80px;
+height:80px;
+background:#fff;
+padding:5px;
+display:flex;
+align-items:center;
+justify-content:center;
 flex-shrink:0
 }
 
 #qrcode img{
-width:62px!important;
-height:62px!important
+display:block!important;
+width:70px!important;
+height:70px!important
 }
 
 .qr-text{
@@ -350,7 +337,7 @@ color:#475467
 }
 
 .qr-text b{
-font-size:8px;
+font-size:9px;
 color:#172b4d
 }
 
@@ -392,8 +379,8 @@ font-weight:bold;
 font-size:12px
 }
 
-.btn-dark{background:#172b4d;color:white}
-.btn-green{background:#138808;color:white}
+.btn-dark{background:#172b4d;color:#fff}
+.btn-green{background:#138808;color:#fff}
 .btn-orange{background:#ff9933;color:#111}
 .btn-gray{background:#e8ebef;color:#172b4d}
 
@@ -411,7 +398,7 @@ z-index:1000
 .modal-box{
 width:100%;
 max-width:390px;
-background:white;
+background:#fff;
 border-radius:14px;
 padding:18px
 }
@@ -420,8 +407,7 @@ padding:18px
 margin:0 0 12px
 }
 
-.modal-box input,
-.modal-box textarea{
+.modal-box input,.modal-box textarea{
 width:100%;
 padding:11px;
 border:1px solid #d0d5dd;
@@ -430,10 +416,7 @@ margin-bottom:10px;
 font-family:Arial
 }
 
-.modal-box textarea{
-min-height:85px
-}
-
+.modal-box textarea{min-height:85px}
 .modal-actions{text-align:right}
 
 .toast{
@@ -442,7 +425,7 @@ left:50%;
 bottom:20px;
 transform:translateX(-50%);
 background:#172b4d;
-color:white;
+color:#fff;
 padding:11px 18px;
 border-radius:8px;
 font-size:12px;
@@ -481,7 +464,7 @@ height:44px
 }
 
 @media print{
-body{background:white}
+body{background:#fff}
 .top,.panel,.actions,.toast{display:none!important}
 .app{padding:0}
 .cards{
@@ -505,9 +488,14 @@ page-break-inside:avoid
 <p>Professional Digital Business Card</p>
 </div>
 
+
+<!-- INPUT -->
+
 <div class="panel">
 
-<div class="panel-title">Business Information</div>
+<div class="panel-title">
+Business Information
+</div>
 
 <div class="form">
 
@@ -536,7 +524,10 @@ placeholder="Business Address"></textarea>
 </div>
 
 
+<!-- CARDS -->
+
 <div class="cards">
+
 
 <!-- FRONT -->
 
@@ -584,7 +575,9 @@ class="business-photo"
 onclick="document.getElementById('logoInput').click()">
 
 <span id="logoText">
-TAP TO<br>UPLOAD<br>LOGO
+TAP TO<br>
+UPLOAD<br>
+LOGO
 </span>
 
 <img id="logoImg">
@@ -597,90 +590,65 @@ type="file"
 accept="image/*"
 style="display:none">
 
+
 <div class="fields">
 
 <div
 class="field full"
 onclick="edit('businessName')">
-
 <label>Business Name</label>
-
-<strong
-id="businessName"
-class="business-name">
+<strong id="businessName" class="business-name">
 Tap to enter
 </strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('businessType')">
-
 <label>Business Type</label>
 <strong id="businessType">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('owner')">
-
 <label>Contact Person</label>
 <strong id="owner">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('mobile')">
-
 <label>Mobile</label>
 <strong id="mobile">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('whatsapp')">
-
 <label>WhatsApp</label>
 <strong id="whatsapp">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('state')">
-
 <label>State</label>
 <strong id="state">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('district')">
-
 <label>District</label>
 <strong id="district">Tap to enter</strong>
-
 </div>
-
 
 <div
 class="field"
 onclick="edit('village')">
-
 <label>Village / City</label>
 <strong id="village">Tap to enter</strong>
-
 </div>
 
 </div>
@@ -688,10 +656,8 @@ onclick="edit('village')">
 
 
 <div class="business-id">
-
 <b>BUSINESS ID:</b>
 <span id="businessId"></span>
-
 </div>
 
 </div>
@@ -747,19 +713,15 @@ Contact
 <div
 class="contact-box"
 onclick="edit('email')">
-
 <label>Email</label>
 <strong id="email">Tap to enter</strong>
-
 </div>
 
 <div
 class="contact-box"
 onclick="edit('website')">
-
 <label>Website</label>
 <strong id="website">Tap to enter</strong>
-
 </div>
 
 </div>
@@ -793,18 +755,15 @@ Business QR
 <div id="qrcode"></div>
 
 <div class="qr-text">
-
 <b>Business Details</b>
-
 <br><br>
-
-Scan the QR to view the
+Scan this QR to view the
 business details entered
 in this profile.
-
 </div>
 
 </div>
+
 </div>
 
 
@@ -813,7 +772,6 @@ in this profile.
 <div class="note">
 
 <b>Important:</b><br>
-
 This digital business profile is provided
 for business identification and contact
 purposes. It is not a Government ID,
@@ -834,6 +792,8 @@ INDIA DIGITAL BUSINESS PROFILE
 
 </div>
 
+
+<!-- BUTTONS -->
 
 <div class="actions">
 
@@ -875,28 +835,14 @@ NEW BUSINESS
 
 </div>
 
-<div style="
-text-align:center;
-margin-top:10px;
-font-size:9px;
-color:#667085">
-Your business information is saved locally in this browser.
-</div>
 
-</div>
+<!-- MODAL -->
 
-
-<!-- EDIT MODAL -->
-
-<div
-class="modal"
-id="modal">
+<div class="modal" id="modal">
 
 <div class="modal-box">
 
-<h3 id="modalTitle">
-Edit Information
-</h3>
+<h3 id="modalTitle">Edit Information</h3>
 
 <input
 id="modalInput"
@@ -905,8 +851,7 @@ placeholder="Enter value">
 <textarea
 id="modalText"
 style="display:none"
-placeholder="Enter information">
-</textarea>
+placeholder="Enter information"></textarea>
 
 <div class="modal-actions">
 
@@ -928,14 +873,16 @@ SAVE
 </div>
 
 
-<div
-class="toast"
-id="toast">
+<div class="toast" id="toast">
 Saved
 </div>
 
 
 <script>
+
+/* =====================================================
+DATA
+===================================================== */
 
 let profile={
 id:createBusinessID(),
@@ -957,19 +904,25 @@ logo:""
 let editing="";
 
 
+/* =====================================================
+BUSINESS ID
+===================================================== */
+
 function createBusinessID(){
 
 return "IDPB-" +
 new Date().getFullYear() +
 "-" +
 Math.floor(
-100000+Math.random()*900000
+100000 + Math.random()*900000
 );
 
 }
 
 
-/* EDIT */
+/* =====================================================
+EDIT
+===================================================== */
 
 function edit(field){
 
@@ -1022,7 +975,10 @@ function saveEdit(){
 
 let value;
 
-if(editing==="services" || editing==="address"){
+if(
+editing==="services" ||
+editing==="address"
+){
 
 value=document.getElementById("modalText")
 .value.trim();
@@ -1052,7 +1008,9 @@ document.getElementById("modal")
 }
 
 
-/* LOGO */
+/* =====================================================
+LOGO
+===================================================== */
 
 document.getElementById("logoInput")
 .addEventListener("change",function(e){
@@ -1063,7 +1021,7 @@ if(!file)return;
 
 if(!file.type.startsWith("image/")){
 
-alert("Please select an image.");
+alert("Please select a valid image.");
 
 return;
 
@@ -1086,7 +1044,9 @@ reader.readAsDataURL(file);
 });
 
 
-/* UI */
+/* =====================================================
+TEXT
+===================================================== */
 
 function setText(id,value,placeholder){
 
@@ -1096,24 +1056,21 @@ document.getElementById(id)
 }
 
 
+/* =====================================================
+UPDATE UI
+===================================================== */
+
 function updateUI(){
 
 setText("businessId",profile.id,"");
 
 setText("businessName",profile.businessName,"Tap to enter");
-
 setText("businessType",profile.businessType,"Tap to enter");
-
 setText("owner",profile.owner,"Tap to enter");
-
 setText("mobile",profile.mobile,"Tap to enter");
-
 setText("whatsapp",profile.whatsapp,"Tap to enter");
-
 setText("state",profile.state,"Tap to enter");
-
 setText("district",profile.district,"Tap to enter");
-
 setText("village",profile.village,"Tap to enter");
 
 setText(
@@ -1123,7 +1080,6 @@ profile.services,
 );
 
 setText("email",profile.email,"Tap to enter");
-
 setText("website",profile.website,"Tap to enter");
 
 setText(
@@ -1177,12 +1133,16 @@ text.style.display="block";
 }
 
 
+/* QR */
+
 generateQR();
 
 }
 
 
-/* FORM LIVE */
+/* =====================================================
+LIVE FORM
+===================================================== */
 
 const quick={
 fBusinessName:"businessName",
@@ -1244,54 +1204,86 @@ generateQR();
 }
 
 
-/* QR */
+/* =====================================================
+RELIABLE QR
+===================================================== */
 
 function generateQR(){
 
-let box=document.getElementById("qrcode");
+const box=document.getElementById("qrcode");
 
 box.innerHTML="";
 
-let qrData=
-`Business Details
 
-Business ID: ${profile.id}
+/*
+IMPORTANT:
+Only Business Details are stored in QR.
+*/
 
-Business Name: ${profile.businessName||"-"}
+const qrData=
+"Business Details\n\n"+
+"Business ID: "+(profile.id||"-")+"\n"+
+"Business Name: "+(profile.businessName||"-")+"\n"+
+"Business Type: "+(profile.businessType||"-")+"\n"+
+"Owner / Contact Person: "+(profile.owner||"-")+"\n"+
+"Mobile: "+(profile.mobile||"-")+"\n"+
+"WhatsApp: "+(profile.whatsapp||"-")+"\n"+
+"Email: "+(profile.email||"-")+"\n"+
+"Website: "+(profile.website||"-")+"\n"+
+"State: "+(profile.state||"-")+"\n"+
+"District: "+(profile.district||"-")+"\n"+
+"Village / City: "+(profile.village||"-")+"\n"+
+"Products / Services: "+(profile.services||"-")+"\n"+
+"Business Address: "+(profile.address||"-");
 
-Business Type: ${profile.businessType||"-"}
 
-Owner / Contact Person: ${profile.owner||"-"}
+if(typeof QRCode==="undefined"){
 
-Mobile: ${profile.mobile||"-"}
+box.innerHTML=
+"<div style='font-size:7px;text-align:center;color:#b42318'>"+
+"QR library not loaded"+
+"</div>";
 
-WhatsApp: ${profile.whatsapp||"-"}
-
-Email: ${profile.email||"-"}
-
-Website: ${profile.website||"-"}
-
-State: ${profile.state||"-"}
-
-District: ${profile.district||"-"}
-
-Village / City: ${profile.village||"-"}
-
-Products / Services: ${profile.services||"-"}
-
-Business Address: ${profile.address||"-"}`;
-
-new QRCode(box,{
-text:qrData,
-width:62,
-height:62,
-correctLevel:QRCode.CorrectLevel.M
-});
+return;
 
 }
 
 
-/* SAVE */
+try{
+
+new QRCode(box,{
+
+text:qrData,
+
+width:70,
+
+height:70,
+
+colorDark:"#000000",
+
+colorLight:"#ffffff",
+
+correctLevel:QRCode.CorrectLevel.M
+
+});
+
+}catch(error){
+
+console.error("QR ERROR:",error);
+
+box.innerHTML=
+"<div style='font-size:7px;text-align:center'>"+
+"QR generation failed"+
+"</div>";
+
+}
+
+}
+
+
+/* =====================================================
+SAVE
+===================================================== */
 
 function saveProfile(){
 
@@ -1304,10 +1296,10 @@ JSON.stringify(profile)
 
 showToast("Business profile saved");
 
-}catch(e){
+}catch(error){
 
 alert(
-"Could not save. Try a smaller logo."
+"Could not save. Please use a smaller logo."
 );
 
 }
@@ -1315,17 +1307,22 @@ alert(
 }
 
 
-/* LOAD */
+/* =====================================================
+LOAD
+===================================================== */
 
 function loadProfile(){
 
-let saved=localStorage.getItem(
+let saved=
+localStorage.getItem(
 "IDP_BUSINESS_PROFILE"
 );
 
 if(!saved){
 
-alert("No saved business profile found.");
+alert(
+"No saved business profile found."
+);
 
 return;
 
@@ -1337,18 +1334,24 @@ profile=JSON.parse(saved);
 
 updateUI();
 
-showToast("Business profile loaded");
+showToast(
+"Business profile loaded"
+);
 
-}catch(e){
+}catch(error){
 
-alert("Could not load profile.");
+alert(
+"Could not load business profile."
+);
 
 }
 
 }
 
 
-/* NEW */
+/* =====================================================
+NEW BUSINESS
+===================================================== */
 
 function newBusiness(){
 
@@ -1373,20 +1376,35 @@ address:"",
 logo:""
 };
 
-document.getElementById("logoInput").value="";
+document.getElementById(
+"logoInput"
+).value="";
 
 updateUI();
 
-showToast("New business profile created");
+showToast(
+"New business profile created"
+);
 
 }
 
 
-/* CANVAS */
+/* =====================================================
+CREATE IMAGES
+===================================================== */
 
 async function createImages(){
 
-let front=await html2canvas(
+if(typeof html2canvas==="undefined"){
+
+throw new Error(
+"PNG library not loaded"
+);
+
+}
+
+let front=
+await html2canvas(
 document.getElementById("frontCard"),
 {
 scale:3,
@@ -1395,7 +1413,8 @@ backgroundColor:"#ffffff"
 }
 );
 
-let back=await html2canvas(
+let back=
+await html2canvas(
 document.getElementById("backCard"),
 {
 scale:3,
@@ -1409,19 +1428,25 @@ return{front,back};
 }
 
 
-/* PNG */
+/* =====================================================
+PNG DOWNLOAD
+===================================================== */
 
 async function downloadPNG(){
 
 try{
 
-showToast("Preparing PNG...");
+showToast(
+"Preparing PNG..."
+);
 
-let{front,back}=await createImages();
+let{front,back}=
+await createImages();
 
 let gap=50;
 
-let canvas=document.createElement("canvas");
+let canvas=
+document.createElement("canvas");
 
 canvas.width=
 front.width+
@@ -1434,7 +1459,8 @@ front.height,
 back.height
 );
 
-let ctx=canvas.getContext("2d");
+let ctx=
+canvas.getContext("2d");
 
 ctx.fillStyle="#ffffff";
 
@@ -1461,7 +1487,9 @@ canvas.toBlob(function(blob){
 
 if(!blob){
 
-alert("PNG creation failed.");
+alert(
+"PNG creation failed."
+);
 
 return;
 
@@ -1492,16 +1520,18 @@ URL.revokeObjectURL(url);
 
 },1500);
 
-showToast("PNG download started");
+showToast(
+"PNG download started"
+);
 
 },"image/png");
 
-}catch(e){
+}catch(error){
 
-console.error(e);
+console.error(error);
 
 alert(
-"PNG download failed. Please try again."
+"PNG download failed. Please check your internet connection and try again."
 );
 
 }
@@ -1509,19 +1539,34 @@ alert(
 }
 
 
-/* PDF */
+/* =====================================================
+PDF DOWNLOAD
+===================================================== */
 
 async function downloadPDF(){
 
 try{
 
-showToast("Preparing PDF...");
+showToast(
+"Preparing PDF..."
+);
 
-let{front,back}=await createImages();
+let{front,back}=
+await createImages();
 
-const{jsPDF}=window.jspdf;
+if(!window.jspdf){
 
-let pdf=new jsPDF({
+throw new Error(
+"PDF library not loaded"
+);
+
+}
+
+const{jsPDF}=
+window.jspdf;
+
+let pdf=
+new jsPDF({
 orientation:"landscape",
 unit:"mm",
 format:"a4"
@@ -1558,7 +1603,9 @@ cardHeight
 pdf.addImage(
 back.toDataURL("image/png"),
 "PNG",
-margin+cardWidth+gap,
+margin+
+cardWidth+
+gap,
 y,
 cardWidth,
 cardHeight
@@ -1570,14 +1617,16 @@ profile.id+
 ".pdf"
 );
 
-showToast("PDF download started");
+showToast(
+"PDF download started"
+);
 
-}catch(e){
+}catch(error){
 
-console.error(e);
+console.error(error);
 
 alert(
-"PDF download failed. Please try again."
+"PDF download failed. Please check your internet connection and try again."
 );
 
 }
@@ -1585,7 +1634,9 @@ alert(
 }
 
 
-/* PRINT */
+/* =====================================================
+PRINT
+===================================================== */
 
 function printCards(){
 
@@ -1594,19 +1645,25 @@ window.print();
 }
 
 
-/* TOAST */
+/* =====================================================
+TOAST
+===================================================== */
 
 function showToast(message){
 
-let toast=document.getElementById("toast");
+let toast=
+document.getElementById("toast");
 
 toast.textContent=message;
 
 toast.style.display="block";
 
-clearTimeout(window.toastTimer);
+clearTimeout(
+window.toastTimer
+);
 
-window.toastTimer=setTimeout(function(){
+window.toastTimer=
+setTimeout(function(){
 
 toast.style.display="none";
 
@@ -1615,7 +1672,9 @@ toast.style.display="none";
 }
 
 
-/* LOAD EXISTING */
+/* =====================================================
+LOAD SAVED DATA
+===================================================== */
 
 let existing=
 localStorage.getItem(
@@ -1626,7 +1685,8 @@ if(existing){
 
 try{
 
-profile=JSON.parse(existing);
+profile=
+JSON.parse(existing);
 
 }catch(e){}
 
