@@ -1,1698 +1,1210 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>India Digital Business Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- QR -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-
-<!-- PNG -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-<!-- PDF -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<title>One Million Pixels Homepage</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-background:#f1f3f5;
-font-family:Arial,sans-serif;
-color:#172b4d
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.app{
-max-width:1100px;
-margin:auto;
-padding:16px
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f8fc;
+    color: #111827;
 }
 
-.top{text-align:center;margin-bottom:18px}
-.top h1{margin:0;font-size:27px}
-.top p{margin:6px 0;color:#667085;font-size:12px}
+/* HEADER */
 
-.panel{
-background:#fff;
-padding:16px;
-border-radius:12px;
-margin-bottom:20px;
-box-shadow:0 4px 18px rgba(0,0,0,.08)
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.panel-title{
-font-size:15px;
-font-weight:bold;
-margin-bottom:12px
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.form{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
+.brand {
+    font-size: 20px;
+    font-weight: 900;
 }
 
-.form input,.form textarea{
-width:100%;
-padding:11px;
-border:1px solid #d0d5dd;
-border-radius:8px;
-font-size:13px;
-outline:none;
-font-family:Arial
+.brand span {
+    color: #2563eb;
 }
 
-.form textarea{
-min-height:75px;
-resize:vertical
+.nav-btn {
+    border: none;
+    background: #111827;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.full{grid-column:1/-1}
+/* HERO */
 
-.cards{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap
+.hero {
+    text-align: center;
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px 35px;
 }
 
-.card{
-width:490px;
-min-height:350px;
-background:#fff;
-border-radius:16px;
-overflow:hidden;
-position:relative;
-border:1px solid #d9dee5;
-box-shadow:0 8px 25px rgba(0,0,0,.10)
+.hero h1 {
+    font-size: clamp(38px, 7vw, 70px);
+    line-height: 1;
+    letter-spacing: -2px;
 }
 
-.tricolor{
-height:6px;
-display:flex
+.hero h1 span {
+    color: #2563eb;
 }
 
-.saffron{flex:1;background:#ff9933}
-.white{flex:1;background:#fff}
-.green{flex:1;background:#138808}
-
-.inner{
-padding:20px 20px 45px
+.hero p {
+    max-width: 700px;
+    margin: 20px auto;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 16px;
 }
 
-.header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:17px
+.hero-btn {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 13px 24px;
+    border-radius: 11px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:10px
+/* STATS */
+
+.stats {
+    max-width: 850px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0 20px;
 }
 
-.logo{
-width:48px;
-height:48px;
-border-radius:50%;
-border:3px solid #ff9933;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-background:#fff
+.stat {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 17px;
+    text-align: center;
 }
 
-.logo:after{
-content:"";
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-height:5px;
-background:#138808
+.stat small {
+    display: block;
+    color: #64748b;
+    margin-bottom: 5px;
 }
 
-.chakra{
-width:29px;
-height:29px;
-border:2px solid #1d4e89;
-border-radius:50%;
-position:absolute;
-opacity:.22
+.stat strong {
+    font-size: 20px;
 }
 
-.idp{
-font-weight:bold;
-font-size:10px;
-background:#fff;
-padding:3px;
-z-index:2
+/* PRICING */
+
+.pricing {
+    max-width: 1050px;
+    margin: 15px auto 35px;
+    padding: 0 20px;
 }
 
-.brand-name{
-font-size:13px;
-font-weight:bold
+.section-title {
+    text-align: center;
+    margin-bottom: 16px;
+    font-size: 23px;
 }
 
-.brand-name .a{color:#ff9933}
-.brand-name .b{color:#172b4d}
-.brand-name .c{color:#138808}
-
-.brand small{
-display:block;
-font-size:7px;
-color:#667085;
-margin-top:3px
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
-.badge{
-font-size:7px;
-font-weight:bold;
-padding:6px 9px;
-border-radius:20px;
-background:#f2f4f7
+.price-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 18px;
+    text-align: center;
 }
 
-.business-front{
-display:grid;
-grid-template-columns:100px 1fr;
-gap:17px
+.price-card strong {
+    display: block;
+    font-size: 24px;
 }
 
-.business-photo{
-width:100px;
-height:105px;
-border:1px dashed #98a2b3;
-border-radius:9px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-size:9px;
-color:#667085;
-cursor:pointer;
-overflow:hidden
+.price-card span {
+    color: #64748b;
+    font-size: 13px;
 }
 
-.business-photo img{
-width:100%;
-height:100%;
-object-fit:contain;
-display:none
+/* SEARCH */
+
+.search-area {
+    max-width: 1050px;
+    margin: auto;
+    padding: 0 20px 18px;
 }
 
-.fields{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px 12px
+.search {
+    width: 100%;
+    border: 1px solid #d9dee8;
+    background: white;
+    padding: 13px 15px;
+    border-radius: 11px;
+    outline: none;
+    font-size: 15px;
 }
 
-.field{
-padding:4px;
-border-radius:5px;
-cursor:pointer
+/* PIXEL WALL */
+
+.wall-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px 60px;
 }
 
-.field:hover{background:#f5f7fa}
-
-.field label{
-display:block;
-font-size:6.5px;
-color:#98a2b3;
-text-transform:uppercase;
-margin-bottom:3px
+.wall-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
-.field strong{
-display:block;
-font-size:8.5px;
-word-break:break-word
+.wall-heading h2 {
+    font-size: 22px;
 }
 
-.business-name{font-size:11px!important}
-
-.business-id{
-margin-top:13px;
-padding:9px;
-background:#f6f7f9;
-border:1px solid #eaecf0;
-border-radius:7px;
-font-size:8px
+.wall-heading span {
+    color: #64748b;
+    font-size: 13px;
 }
 
-.back-heading{
-font-size:13px;
-font-weight:bold;
-padding-bottom:9px;
-border-bottom:1px solid #dfe3e8;
-margin-bottom:13px
+.pixel-wall {
+    background: #111827;
+    padding: 7px;
+    border-radius: 17px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 
-.section{margin-bottom:12px}
-
-.section-title{
-font-size:8px;
-font-weight:bold;
-text-transform:uppercase;
-margin-bottom:6px
+.pixel-row {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
 }
 
-.services,.address{
-background:#fafbfc;
-border:1px solid #e4e7ec;
-border-radius:8px;
-padding:10px;
-font-size:7.5px;
-line-height:1.6;
-color:#475467;
-cursor:pointer;
-min-height:45px
+.pixel {
+    position: relative;
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    background: #e5e7eb;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform .15s;
 }
 
-.contact{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:9px
+.pixel:hover {
+    transform: scale(1.15);
+    z-index: 5;
+    box-shadow: 0 0 0 2px #2563eb;
 }
 
-.contact-box{
-background:#fafbfc;
-border:1px solid #e4e7ec;
-border-radius:8px;
-padding:9px;
-cursor:pointer
+.pixel.sold {
+    background: #16a34a;
 }
 
-.contact-box label{
-display:block;
-font-size:6.5px;
-color:#98a2b3;
-margin-bottom:4px;
-text-transform:uppercase
+.pixel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.contact-box strong{
-font-size:7.5px;
-word-break:break-word
+.company-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2px;
+    background: rgba(0,0,0,.75);
+    color: white;
+    font-size: 6px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.qr-section{
-display:flex;
-align-items:center;
-gap:13px;
-background:#fafbfc;
-border:1px solid #e4e7ec;
-border-radius:8px;
-padding:9px
+/* LEGEND */
+
+.legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 17px 0;
+    font-size: 13px;
 }
 
-#qrcode{
-width:80px;
-height:80px;
-background:#fff;
-padding:5px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-shrink:0
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-#qrcode img{
-display:block!important;
-width:70px!important;
-height:70px!important
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
 }
 
-.qr-text{
-font-size:7px;
-line-height:1.5;
-color:#475467
+.available {
+    background: #e5e7eb;
 }
 
-.qr-text b{
-font-size:9px;
-color:#172b4d
+.booked {
+    background: #16a34a;
 }
 
-.note{
-background:#f8faf9;
-border:1px solid #dfe8e2;
-border-radius:8px;
-padding:9px;
-font-size:6.8px;
-line-height:1.5;
-color:#475467
+.premium {
+    background: #f59e0b;
 }
 
-.footer{
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-padding:7px;
-background:#f5f6f8;
-border-top:1px solid #e4e7ec;
-text-align:center;
-font-size:6.5px;
-color:#667085
+.edge {
+    background: #8b5cf6;
 }
 
-.actions{
-text-align:center;
-margin-top:22px
+.corner {
+    background: #ef4444;
 }
 
-button{
-border:0;
-border-radius:8px;
-padding:11px 15px;
-margin:4px;
-cursor:pointer;
-font-weight:bold;
-font-size:12px
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    background: rgba(15,23,42,.72);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.btn-dark{background:#172b4d;color:#fff}
-.btn-green{background:#138808;color:#fff}
-.btn-orange{background:#ff9933;color:#111}
-.btn-gray{background:#e8ebef;color:#172b4d}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.65);
-display:none;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:1000
+.modal.show {
+    display: flex;
 }
 
-.modal-box{
-width:100%;
-max-width:390px;
-background:#fff;
-border-radius:14px;
-padding:18px
+.profile-card {
+    width: min(430px, 100%);
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-.modal-box h3{
-margin:0 0 12px
+.profile-cover {
+    height: 95px;
+    background: linear-gradient(135deg, #111827, #2563eb);
 }
 
-.modal-box input,.modal-box textarea{
-width:100%;
-padding:11px;
-border:1px solid #d0d5dd;
-border-radius:8px;
-margin-bottom:10px;
-font-family:Arial
+.close-btn {
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 19px;
+    cursor: pointer;
 }
 
-.modal-box textarea{min-height:85px}
-.modal-actions{text-align:right}
-
-.toast{
-position:fixed;
-left:50%;
-bottom:20px;
-transform:translateX(-50%);
-background:#172b4d;
-color:#fff;
-padding:11px 18px;
-border-radius:8px;
-font-size:12px;
-display:none;
-z-index:2000
+.profile-content {
+    padding: 0 24px 25px;
 }
 
-@media(max-width:700px){
-.form{grid-template-columns:1fr}
-.full{grid-column:auto}
-.cards{
-flex-direction:column;
-align-items:center
-}
-.card{
-width:100%;
-max-width:490px
-}
+.profile-logo {
+    width: 82px;
+    height: 82px;
+    margin-top: -41px;
+    border-radius: 17px;
+    object-fit: cover;
+    background: white;
+    border: 5px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
 }
 
-@media(max-width:470px){
-.business-front{
-grid-template-columns:82px 1fr;
-gap:10px
-}
-.business-photo{
-width:82px;
-height:100px
-}
-.badge{display:none}
-.brand-name{font-size:10px}
-.logo{
-width:44px;
-height:44px
-}
+.profile-content h2 {
+    margin-top: 13px;
+    font-size: 25px;
 }
 
-@media print{
-body{background:#fff}
-.top,.panel,.actions,.toast{display:none!important}
-.app{padding:0}
-.cards{
-display:flex;
-flex-wrap:nowrap
+.profile-category {
+    color: #2563eb;
+    font-weight: bold;
+    margin-top: 5px;
 }
-.card{
-box-shadow:none;
-page-break-inside:avoid
+
+.profile-description {
+    margin-top: 14px;
+    color: #64748b;
+    line-height: 1.6;
 }
+
+.profile-info {
+    background: #f8fafc;
+    border-radius: 12px;
+    margin-top: 17px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.website-btn,
+.reserve-btn {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    margin-top: 14px;
+    border-radius: 10px;
+    background: #111827;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111827;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .price-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pixel-row {
+        grid-template-columns: repeat(20, 1fr);
+        gap: 1px;
+        margin-bottom: 1px;
+    }
+
+    .pixel-wall {
+        padding: 4px;
+    }
+
+    .pixel:hover {
+        transform: none;
+    }
+
+    .wall-heading {
+        display: block;
+    }
+
+    .wall-heading span {
+        display: block;
+        margin-top: 5px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<!-- HEADER -->
 
-<div class="top">
-<h1>India Digital Business Profile</h1>
-<p>Professional Digital Business Card</p>
+<header>
+
+    <div class="navbar">
+
+        <div class="brand">
+            ONE MILLION <span>PIXELS</span> HOMEPAGE
+        </div>
+
+        <button
+            class="nav-btn"
+            onclick="goToWall()">
+            Buy Pixel
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>
+        ONE MILLION <span>PIXELS</span>
+    </h1>
+
+    <p>
+        Give your business a permanent digital space.
+        Showcase your logo, company profile and website
+        on the One Million Pixels Homepage.
+    </p>
+
+    <button
+        class="hero-btn"
+        onclick="goToWall()">
+        Explore Pixel Wall
+    </button>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+    <div class="stat">
+        <small>Total Digital Space</small>
+        <strong>1,000,000</strong>
+    </div>
+
+    <div class="stat">
+        <small>Designed For</small>
+        <strong>Brands</strong>
+    </div>
+
+    <div class="stat">
+        <small>Platform</small>
+        <strong>India 🇮🇳</strong>
+    </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section class="pricing">
+
+    <h2 class="section-title">
+        Choose Your Digital Space
+    </h2>
+
+    <div class="price-grid">
+
+        <div class="price-card">
+            <strong>₹99</strong>
+            <span>CENTER</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹199</strong>
+            <span>PREMIUM</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹299</strong>
+            <span>EDGE</span>
+        </div>
+
+        <div class="price-card">
+            <strong>₹499</strong>
+            <span>CORNER</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<div class="search-area">
+
+    <input
+        id="searchBox"
+        class="search"
+        type="text"
+        placeholder="Search company..."
+        oninput="searchCompany()">
+
 </div>
 
 
-<!-- INPUT -->
+<!-- PIXEL WALL -->
 
-<div class="panel">
+<section
+    class="wall-section"
+    id="pixelWallSection">
 
-<div class="panel-title">
-Business Information
-</div>
+    <div class="wall-heading">
 
-<div class="form">
+        <h2>
+            Million Pixel Wall
+        </h2>
 
-<input id="fBusinessName" placeholder="Business Name">
-<input id="fBusinessType" placeholder="Business Type">
-<input id="fOwner" placeholder="Owner / Contact Person">
-<input id="fMobile" placeholder="Mobile Number">
-<input id="fWhatsApp" placeholder="WhatsApp Number">
-<input id="fEmail" placeholder="Email Address">
-<input id="fWebsite" placeholder="Website">
-<input id="fState" placeholder="State">
-<input id="fDistrict" placeholder="District">
-<input id="fVillage" placeholder="Village / City">
+        <span>
+            Click a pixel to view its profile
+        </span>
 
-<input
-id="fServices"
-class="full"
-placeholder="Products / Services">
-
-<textarea
-id="fAddress"
-class="full"
-placeholder="Business Address"></textarea>
-
-</div>
-</div>
+    </div>
 
 
-<!-- CARDS -->
+    <div class="legend">
 
-<div class="cards">
+        <div class="legend-item">
+            <span class="dot available"></span>
+            Available
+        </div>
 
+        <div class="legend-item">
+            <span class="dot booked"></span>
+            Booked
+        </div>
 
-<!-- FRONT -->
+        <div class="legend-item">
+            <span class="dot premium"></span>
+            Premium
+        </div>
 
-<div class="card" id="frontCard">
+        <div class="legend-item">
+            <span class="dot edge"></span>
+            Edge
+        </div>
 
-<div class="tricolor">
-<div class="saffron"></div>
-<div class="white"></div>
-<div class="green"></div>
-</div>
+        <div class="legend-item">
+            <span class="dot corner"></span>
+            Corner
+        </div>
 
-<div class="inner">
-
-<div class="header">
-
-<div class="brand">
-
-<div class="logo">
-<div class="chakra"></div>
-<span class="idp">IDP</span>
-</div>
-
-<div>
-
-<div class="brand-name">
-<span class="a">INDIA</span>
-<span class="b"> DIGITAL</span>
-<span class="c"> BUSINESS PROFILE</span>
-</div>
-
-<small>Digital Business Card</small>
-
-</div>
-</div>
-
-<div class="badge">BUSINESS</div>
-
-</div>
+    </div>
 
 
-<div class="business-front">
+    <div
+        class="pixel-wall"
+        id="pixelWall">
+    </div>
+
+</section>
+
+
+<!-- PROFILE MODAL -->
 
 <div
-class="business-photo"
-onclick="document.getElementById('logoInput').click()">
+    class="modal"
+    id="profileModal">
 
-<span id="logoText">
-TAP TO<br>
-UPLOAD<br>
-LOGO
-</span>
+    <div class="profile-card">
 
-<img id="logoImg">
+        <div class="profile-cover"></div>
 
-</div>
+        <button
+            class="close-btn"
+            onclick="closeProfile()">
+            ×
+        </button>
 
-<input
-id="logoInput"
-type="file"
-accept="image/*"
-style="display:none">
+        <div class="profile-content">
 
+            <img
+                id="profileLogo"
+                class="profile-logo"
+                src="https://via.placeholder.com/150?text=PIXEL"
+                alt="Company Logo">
 
-<div class="fields">
+            <h2 id="profileName">
+                Available Pixel
+            </h2>
 
-<div
-class="field full"
-onclick="edit('businessName')">
-<label>Business Name</label>
-<strong id="businessName" class="business-name">
-Tap to enter
-</strong>
-</div>
+            <div
+                id="profileCategory"
+                class="profile-category">
+                Digital Business Space
+            </div>
 
-<div
-class="field"
-onclick="edit('businessType')">
-<label>Business Type</label>
-<strong id="businessType">Tap to enter</strong>
-</div>
+            <p
+                id="profileDescription"
+                class="profile-description">
+                This digital space is available for
+                your company.
+            </p>
 
-<div
-class="field"
-onclick="edit('owner')">
-<label>Contact Person</label>
-<strong id="owner">Tap to enter</strong>
-</div>
+            <div class="profile-info">
 
-<div
-class="field"
-onclick="edit('mobile')">
-<label>Mobile</label>
-<strong id="mobile">Tap to enter</strong>
-</div>
+                <div>
+                    <b>Zone:</b>
+                    <span id="profileZone"></span>
+                </div>
 
-<div
-class="field"
-onclick="edit('whatsapp')">
-<label>WhatsApp</label>
-<strong id="whatsapp">Tap to enter</strong>
-</div>
+                <div>
+                    <b>Price:</b>
+                    ₹<span id="profilePrice"></span>
+                </div>
 
-<div
-class="field"
-onclick="edit('state')">
-<label>State</label>
-<strong id="state">Tap to enter</strong>
-</div>
+                <div>
+                    <b>Pixel:</b>
+                    <span id="profilePixel"></span>
+                </div>
 
-<div
-class="field"
-onclick="edit('district')">
-<label>District</label>
-<strong id="district">Tap to enter</strong>
-</div>
+            </div>
 
-<div
-class="field"
-onclick="edit('village')">
-<label>Village / City</label>
-<strong id="village">Tap to enter</strong>
-</div>
+            <a
+                id="websiteButton"
+                class="website-btn"
+                href="#"
+                target="_blank"
+                style="display:none;">
+                Visit Website
+            </a>
 
-</div>
-</div>
+            <button
+                id="reserveButton"
+                class="reserve-btn"
+                onclick="reservePixel()">
+                Reserve This Pixel
+            </button>
 
+        </div>
 
-<div class="business-id">
-<b>BUSINESS ID:</b>
-<span id="businessId"></span>
-</div>
-
-</div>
-
-<div class="footer">
-DIGITAL BUSINESS PROFILE
-</div>
+    </div>
 
 </div>
 
 
-<!-- BACK -->
+<!-- FOOTER -->
 
-<div class="card" id="backCard">
+<footer>
 
-<div class="tricolor">
-<div class="saffron"></div>
-<div class="white"></div>
-<div class="green"></div>
-</div>
+    <div>
+        <strong>ONE MILLION PIXELS HOMEPAGE</strong>
+    </div>
 
-<div class="inner">
+    <div style="margin-top:8px;">
+        One Million Pixels. Millions of Brands.
+    </div>
 
-<div class="back-heading">
-BUSINESS DETAILS
-</div>
+    <div style="margin-top:12px;">
+        © 2026 One Million Pixels Homepage
+    </div>
 
-
-<div class="section">
-
-<div class="section-title">
-Products / Services
-</div>
-
-<div
-class="services"
-id="services"
-onclick="edit('services')">
-Tap to enter products or services
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-Contact
-</div>
-
-<div class="contact">
-
-<div
-class="contact-box"
-onclick="edit('email')">
-<label>Email</label>
-<strong id="email">Tap to enter</strong>
-</div>
-
-<div
-class="contact-box"
-onclick="edit('website')">
-<label>Website</label>
-<strong id="website">Tap to enter</strong>
-</div>
-
-</div>
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-Business Address
-</div>
-
-<div
-class="address"
-id="address"
-onclick="edit('address')">
-Tap to enter business address
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="section-title">
-Business QR
-</div>
-
-<div class="qr-section">
-
-<div id="qrcode"></div>
-
-<div class="qr-text">
-<b>Business Details</b>
-<br><br>
-Scan this QR to view the
-business details entered
-in this profile.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="note">
-
-<b>Important:</b><br>
-This digital business profile is provided
-for business identification and contact
-purposes. It is not a Government ID,
-Government registration certificate,
-licence, PAN card or Aadhaar card.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
-INDIA DIGITAL BUSINESS PROFILE
-</div>
-
-</div>
-
-</div>
-
-
-<!-- BUTTONS -->
-
-<div class="actions">
-
-<button
-class="btn-green"
-onclick="saveProfile()">
-SAVE BUSINESS
-</button>
-
-<button
-class="btn-dark"
-onclick="loadProfile()">
-LOAD BUSINESS
-</button>
-
-<button
-class="btn-green"
-onclick="downloadPNG()">
-DOWNLOAD PNG
-</button>
-
-<button
-class="btn-orange"
-onclick="downloadPDF()">
-DOWNLOAD PDF
-</button>
-
-<button
-class="btn-gray"
-onclick="printCards()">
-PRINT
-</button>
-
-<button
-class="btn-gray"
-onclick="newBusiness()">
-NEW BUSINESS
-</button>
-
-</div>
-
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-<div class="modal-box">
-
-<h3 id="modalTitle">Edit Information</h3>
-
-<input
-id="modalInput"
-placeholder="Enter value">
-
-<textarea
-id="modalText"
-style="display:none"
-placeholder="Enter information"></textarea>
-
-<div class="modal-actions">
-
-<button
-class="btn-gray"
-onclick="closeModal()">
-CANCEL
-</button>
-
-<button
-class="btn-dark"
-onclick="saveEdit()">
-SAVE
-</button>
-
-</div>
-
-</div>
-</div>
-
-
-<div class="toast" id="toast">
-Saved
-</div>
+</footer>
 
 
 <script>
 
-/* =====================================================
-DATA
-===================================================== */
+/*
+========================================================
+ONE MILLION PIXELS HOMEPAGE
+FRONTEND DEMO
+========================================================
+*/
 
-let profile={
-id:createBusinessID(),
-businessName:"",
-businessType:"",
-owner:"",
-mobile:"",
-whatsapp:"",
-email:"",
-website:"",
-state:"",
-district:"",
-village:"",
-services:"",
-address:"",
-logo:""
-};
+const TOTAL_ROWS = 100;
 
-let editing="";
+const BLOCKS_PER_ROW = 20;
 
+const PRICES = {
 
-/* =====================================================
-BUSINESS ID
-===================================================== */
+    CENTER: 99,
 
-function createBusinessID(){
+    PREMIUM: 199,
 
-return "IDPB-" +
-new Date().getFullYear() +
-"-" +
-Math.floor(
-100000 + Math.random()*900000
-);
+    EDGE: 299,
 
-}
-
-
-/* =====================================================
-EDIT
-===================================================== */
-
-function edit(field){
-
-editing=field;
-
-const titles={
-businessName:"Enter Business Name",
-businessType:"Enter Business Type",
-owner:"Enter Owner / Contact Person",
-mobile:"Enter Mobile Number",
-whatsapp:"Enter WhatsApp Number",
-email:"Enter Email Address",
-website:"Enter Website",
-state:"Enter State",
-district:"Enter District",
-village:"Enter Village / City",
-services:"Enter Products / Services",
-address:"Enter Business Address"
-};
-
-document.getElementById("modalTitle")
-.textContent=titles[field];
-
-let input=document.getElementById("modalInput");
-let text=document.getElementById("modalText");
-
-if(field==="services" || field==="address"){
-
-input.style.display="none";
-text.style.display="block";
-text.value=profile[field]||"";
-text.focus();
-
-}else{
-
-text.style.display="none";
-input.style.display="block";
-input.value=profile[field]||"";
-input.focus();
-
-}
-
-document.getElementById("modal")
-.style.display="flex";
-
-}
-
-
-function saveEdit(){
-
-let value;
-
-if(
-editing==="services" ||
-editing==="address"
-){
-
-value=document.getElementById("modalText")
-.value.trim();
-
-}else{
-
-value=document.getElementById("modalInput")
-.value.trim();
-
-}
-
-profile[editing]=value;
-
-closeModal();
-updateUI();
-
-showToast("Updated successfully");
-
-}
-
-
-function closeModal(){
-
-document.getElementById("modal")
-.style.display="none";
-
-}
-
-
-/* =====================================================
-LOGO
-===================================================== */
-
-document.getElementById("logoInput")
-.addEventListener("change",function(e){
-
-let file=e.target.files[0];
-
-if(!file)return;
-
-if(!file.type.startsWith("image/")){
-
-alert("Please select a valid image.");
-
-return;
-
-}
-
-let reader=new FileReader();
-
-reader.onload=function(event){
-
-profile.logo=event.target.result;
-
-updateUI();
-
-showToast("Logo added");
+    CORNER: 499
 
 };
-
-reader.readAsDataURL(file);
-
-});
-
-
-/* =====================================================
-TEXT
-===================================================== */
-
-function setText(id,value,placeholder){
-
-document.getElementById(id)
-.textContent=value||placeholder;
-
-}
-
-
-/* =====================================================
-UPDATE UI
-===================================================== */
-
-function updateUI(){
-
-setText("businessId",profile.id,"");
-
-setText("businessName",profile.businessName,"Tap to enter");
-setText("businessType",profile.businessType,"Tap to enter");
-setText("owner",profile.owner,"Tap to enter");
-setText("mobile",profile.mobile,"Tap to enter");
-setText("whatsapp",profile.whatsapp,"Tap to enter");
-setText("state",profile.state,"Tap to enter");
-setText("district",profile.district,"Tap to enter");
-setText("village",profile.village,"Tap to enter");
-
-setText(
-"services",
-profile.services,
-"Tap to enter products or services"
-);
-
-setText("email",profile.email,"Tap to enter");
-setText("website",profile.website,"Tap to enter");
-
-setText(
-"address",
-profile.address,
-"Tap to enter business address"
-);
-
-
-/* FORM */
-
-const map={
-fBusinessName:"businessName",
-fBusinessType:"businessType",
-fOwner:"owner",
-fMobile:"mobile",
-fWhatsApp:"whatsapp",
-fEmail:"email",
-fWebsite:"website",
-fState:"state",
-fDistrict:"district",
-fVillage:"village",
-fServices:"services",
-fAddress:"address"
-};
-
-Object.keys(map).forEach(function(id){
-
-document.getElementById(id).value=
-profile[map[id]]||"";
-
-});
-
-
-/* LOGO */
-
-let img=document.getElementById("logoImg");
-let text=document.getElementById("logoText");
-
-if(profile.logo){
-
-img.src=profile.logo;
-img.style.display="block";
-text.style.display="none";
-
-}else{
-
-img.style.display="none";
-text.style.display="block";
-
-}
-
-
-/* QR */
-
-generateQR();
-
-}
-
-
-/* =====================================================
-LIVE FORM
-===================================================== */
-
-const quick={
-fBusinessName:"businessName",
-fBusinessType:"businessType",
-fOwner:"owner",
-fMobile:"mobile",
-fWhatsApp:"whatsapp",
-fEmail:"email",
-fWebsite:"website",
-fState:"state",
-fDistrict:"district",
-fVillage:"village",
-fServices:"services",
-fAddress:"address"
-};
-
-Object.keys(quick).forEach(function(id){
-
-document.getElementById(id)
-.addEventListener("input",function(){
-
-profile[quick[id]]=this.value;
-
-updateCardOnly();
-
-});
-
-});
-
-
-function updateCardOnly(){
-
-setText("businessName",profile.businessName,"Tap to enter");
-setText("businessType",profile.businessType,"Tap to enter");
-setText("owner",profile.owner,"Tap to enter");
-setText("mobile",profile.mobile,"Tap to enter");
-setText("whatsapp",profile.whatsapp,"Tap to enter");
-setText("state",profile.state,"Tap to enter");
-setText("district",profile.district,"Tap to enter");
-setText("village",profile.village,"Tap to enter");
-
-setText(
-"services",
-profile.services,
-"Tap to enter products or services"
-);
-
-setText("email",profile.email,"Tap to enter");
-setText("website",profile.website,"Tap to enter");
-
-setText(
-"address",
-profile.address,
-"Tap to enter business address"
-);
-
-generateQR();
-
-}
-
-
-/* =====================================================
-RELIABLE QR
-===================================================== */
-
-function generateQR(){
-
-const box=document.getElementById("qrcode");
-
-box.innerHTML="";
 
 
 /*
-IMPORTANT:
-Only Business Details are stored in QR.
+Demo companies.
+
+Later these will come from Spring Boot API.
 */
 
-const qrData=
-"Business Details\n\n"+
-"Business ID: "+(profile.id||"-")+"\n"+
-"Business Name: "+(profile.businessName||"-")+"\n"+
-"Business Type: "+(profile.businessType||"-")+"\n"+
-"Owner / Contact Person: "+(profile.owner||"-")+"\n"+
-"Mobile: "+(profile.mobile||"-")+"\n"+
-"WhatsApp: "+(profile.whatsapp||"-")+"\n"+
-"Email: "+(profile.email||"-")+"\n"+
-"Website: "+(profile.website||"-")+"\n"+
-"State: "+(profile.state||"-")+"\n"+
-"District: "+(profile.district||"-")+"\n"+
-"Village / City: "+(profile.village||"-")+"\n"+
-"Products / Services: "+(profile.services||"-")+"\n"+
-"Business Address: "+(profile.address||"-");
+const companies = {
 
+    12: {
 
-if(typeof QRCode==="undefined"){
+        name: "Microsoft",
 
-box.innerHTML=
-"<div style='font-size:7px;text-align:center;color:#b42318'>"+
-"QR library not loaded"+
-"</div>";
+        category: "Technology",
 
-return;
+        logo:
+            "https://logo.clearbit.com/microsoft.com",
 
-}
+        website:
+            "https://www.microsoft.com",
 
+        description:
+            "Technology company profile demo."
 
-try{
+    },
 
-new QRCode(box,{
+    48: {
 
-text:qrData,
+        name: "Ram Solutions",
 
-width:70,
+        category: "Technology",
 
-height:70,
+        logo:
+            "https://via.placeholder.com/150?text=RS",
 
-colorDark:"#000000",
+        website:
+            "https://example.com",
 
-colorLight:"#ffffff",
+        description:
+            "Digital technology solutions company."
 
-correctLevel:QRCode.CorrectLevel.M
+    },
 
-});
+    125: {
 
-}catch(error){
+        name: "Example Brand",
 
-console.error("QR ERROR:",error);
+        category: "Business",
 
-box.innerHTML=
-"<div style='font-size:7px;text-align:center'>"+
-"QR generation failed"+
-"</div>";
+        logo:
+            "https://via.placeholder.com/150?text=EB",
 
-}
+        website:
+            "https://example.com",
 
-}
+        description:
+            "Example brand profile."
 
+    }
 
-/* =====================================================
-SAVE
-===================================================== */
-
-function saveProfile(){
-
-try{
-
-localStorage.setItem(
-"IDP_BUSINESS_PROFILE",
-JSON.stringify(profile)
-);
-
-showToast("Business profile saved");
-
-}catch(error){
-
-alert(
-"Could not save. Please use a smaller logo."
-);
-
-}
-
-}
-
-
-/* =====================================================
-LOAD
-===================================================== */
-
-function loadProfile(){
-
-let saved=
-localStorage.getItem(
-"IDP_BUSINESS_PROFILE"
-);
-
-if(!saved){
-
-alert(
-"No saved business profile found."
-);
-
-return;
-
-}
-
-try{
-
-profile=JSON.parse(saved);
-
-updateUI();
-
-showToast(
-"Business profile loaded"
-);
-
-}catch(error){
-
-alert(
-"Could not load business profile."
-);
-
-}
-
-}
-
-
-/* =====================================================
-NEW BUSINESS
-===================================================== */
-
-function newBusiness(){
-
-if(!confirm(
-"Create a new business profile?"
-))return;
-
-profile={
-id:createBusinessID(),
-businessName:"",
-businessType:"",
-owner:"",
-mobile:"",
-whatsapp:"",
-email:"",
-website:"",
-state:"",
-district:"",
-village:"",
-services:"",
-address:"",
-logo:""
 };
 
-document.getElementById(
-"logoInput"
-).value="";
 
-updateUI();
-
-showToast(
-"New business profile created"
-);
-
-}
+let selectedPixel = null;
 
 
-/* =====================================================
-CREATE IMAGES
-===================================================== */
+/*
+Get zone based on position.
+*/
 
-async function createImages(){
+function getZone(row, block) {
 
-if(typeof html2canvas==="undefined"){
+    const firstRow = row === 1;
 
-throw new Error(
-"PNG library not loaded"
-);
+    const lastRow = row === TOTAL_ROWS;
 
-}
+    const firstBlock = block === 1;
 
-let front=
-await html2canvas(
-document.getElementById("frontCard"),
-{
-scale:3,
-useCORS:true,
-backgroundColor:"#ffffff"
-}
-);
-
-let back=
-await html2canvas(
-document.getElementById("backCard"),
-{
-scale:3,
-useCORS:true,
-backgroundColor:"#ffffff"
-}
-);
-
-return{front,back};
-
-}
+    const lastBlock =
+        block === BLOCKS_PER_ROW;
 
 
-/* =====================================================
-PNG DOWNLOAD
-===================================================== */
+    if (
+        (firstRow || lastRow) &&
+        (firstBlock || lastBlock)
+    ) {
 
-async function downloadPNG(){
+        return "CORNER";
 
-try{
+    }
 
-showToast(
-"Preparing PNG..."
-);
 
-let{front,back}=
-await createImages();
+    if (
+        firstRow ||
+        lastRow ||
+        firstBlock ||
+        lastBlock
+    ) {
 
-let gap=50;
+        return "EDGE";
 
-let canvas=
-document.createElement("canvas");
+    }
 
-canvas.width=
-front.width+
-gap+
-back.width;
 
-canvas.height=
-Math.max(
-front.height,
-back.height
-);
+    if (
+        row >= 40 &&
+        row <= 60 &&
+        block >= 7 &&
+        block <= 14
+    ) {
 
-let ctx=
-canvas.getContext("2d");
+        return "PREMIUM";
 
-ctx.fillStyle="#ffffff";
+    }
 
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
 
-ctx.drawImage(
-front,
-0,
-0
-);
-
-ctx.drawImage(
-back,
-front.width+gap,
-0
-);
-
-canvas.toBlob(function(blob){
-
-if(!blob){
-
-alert(
-"PNG creation failed."
-);
-
-return;
-
-}
-
-let url=
-URL.createObjectURL(blob);
-
-let a=
-document.createElement("a");
-
-a.href=url;
-
-a.download=
-"India-Digital-Business-Profile-"+
-profile.id+
-".png";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-setTimeout(function(){
-
-URL.revokeObjectURL(url);
-
-},1500);
-
-showToast(
-"PNG download started"
-);
-
-},"image/png");
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"PNG download failed. Please check your internet connection and try again."
-);
-
-}
+    return "CENTER";
 
 }
 
 
-/* =====================================================
-PDF DOWNLOAD
-===================================================== */
+/*
+Create pixel wall.
+*/
 
-async function downloadPDF(){
+function createPixelWall() {
 
-try{
+    const wall =
+        document.getElementById("pixelWall");
 
-showToast(
-"Preparing PDF..."
-);
+    wall.innerHTML = "";
 
-let{front,back}=
-await createImages();
-
-if(!window.jspdf){
-
-throw new Error(
-"PDF library not loaded"
-);
-
-}
-
-const{jsPDF}=
-window.jspdf;
-
-let pdf=
-new jsPDF({
-orientation:"landscape",
-unit:"mm",
-format:"a4"
-});
-
-let pageWidth=
-pdf.internal.pageSize.getWidth();
-
-let pageHeight=
-pdf.internal.pageSize.getHeight();
-
-let margin=10;
-let gap=6;
-
-let cardWidth=
-(pageWidth-margin*2-gap)/2;
-
-let cardHeight=
-cardWidth*
-(front.height/front.width);
-
-let y=
-(pageHeight-cardHeight)/2;
-
-pdf.addImage(
-front.toDataURL("image/png"),
-"PNG",
-margin,
-y,
-cardWidth,
-cardHeight
-);
-
-pdf.addImage(
-back.toDataURL("image/png"),
-"PNG",
-margin+
-cardWidth+
-gap,
-y,
-cardWidth,
-cardHeight
-);
-
-pdf.save(
-"India-Digital-Business-Profile-"+
-profile.id+
-".pdf"
-);
-
-showToast(
-"PDF download started"
-);
-
-}catch(error){
-
-console.error(error);
-
-alert(
-"PDF download failed. Please check your internet connection and try again."
-);
-
-}
-
-}
+    let pixelNumber = 1;
 
 
-/* =====================================================
-PRINT
-===================================================== */
+    for (
+        let row = 1;
+        row <= TOTAL_ROWS;
+        row++
+    ) {
 
-function printCards(){
+        const rowElement =
+            document.createElement("div");
 
-window.print();
+        rowElement.className =
+            "pixel-row";
+
+
+        for (
+            let block = 1;
+            block <= BLOCKS_PER_ROW;
+            block++
+        ) {
+
+            const pixel =
+                document.createElement("button");
+
+            pixel.className =
+                "pixel";
+
+
+            const zone =
+                getZone(row, block);
+
+
+            const company =
+                companies[pixelNumber];
+
+
+            if (company) {
+
+                pixel.classList.add("sold");
+
+                pixel.innerHTML = `
+
+                    <img
+                        src="${company.logo}"
+                        alt="${company.name}"
+                        onerror="
+                            this.src=
+                            'https://via.placeholder.com/100?text=Logo'
+                        "
+                    >
+
+                    <span class="company-name">
+                        ${company.name}
+                    </span>
+
+                `;
+
+            }
+
+
+            pixel.title =
+                `${zone} | ₹${PRICES[zone]} | Pixel ${pixelNumber}`;
+
+
+            pixel.onclick = function () {
+
+                openProfile(
+                    pixelNumber,
+                    zone,
+                    company
+                );
+
+            };
+
+
+            rowElement.appendChild(pixel);
+
+            pixelNumber++;
+
+        }
+
+
+        wall.appendChild(rowElement);
+
+    }
 
 }
 
 
-/* =====================================================
-TOAST
-===================================================== */
+/*
+Open profile.
+*/
 
-function showToast(message){
+function openProfile(
+    pixelNumber,
+    zone,
+    company
+) {
 
-let toast=
-document.getElementById("toast");
+    selectedPixel = {
 
-toast.textContent=message;
+        pixelNumber,
+        zone
 
-toast.style.display="block";
+    };
 
-clearTimeout(
-window.toastTimer
-);
 
-window.toastTimer=
-setTimeout(function(){
+    const modal =
+        document.getElementById(
+            "profileModal"
+        );
 
-toast.style.display="none";
 
-},2200);
+    document.getElementById(
+        "profileZone"
+    ).textContent = zone;
+
+
+    document.getElementById(
+        "profilePrice"
+    ).textContent = PRICES[zone];
+
+
+    document.getElementById(
+        "profilePixel"
+    ).textContent = pixelNumber;
+
+
+    const websiteButton =
+        document.getElementById(
+            "websiteButton"
+        );
+
+
+    if (company) {
+
+        document.getElementById(
+            "profileLogo"
+        ).src = company.logo;
+
+
+        document.getElementById(
+            "profileName"
+        ).textContent =
+            company.name;
+
+
+        document.getElementById(
+            "profileCategory"
+        ).textContent =
+            company.category;
+
+
+        document.getElementById(
+            "profileDescription"
+        ).textContent =
+            company.description;
+
+
+        websiteButton.style.display =
+            "block";
+
+
+        websiteButton.href =
+            company.website;
+
+    } else {
+
+        document.getElementById(
+            "profileLogo"
+        ).src =
+            "https://via.placeholder.com/150?text=PIXEL";
+
+
+        document.getElementById(
+            "profileName"
+        ).textContent =
+            "Available Pixel";
+
+
+        document.getElementById(
+            "profileCategory"
+        ).textContent =
+            "Digital Business Space";
+
+
+        document.getElementById(
+            "profileDescription"
+        ).textContent =
+            "This digital space is available for your company.";
+
+        websiteButton.style.display =
+            "none";
+
+    }
+
+
+    modal.classList.add("show");
 
 }
 
 
-/* =====================================================
-LOAD SAVED DATA
-===================================================== */
+/*
+Close profile.
+*/
 
-let existing=
-localStorage.getItem(
-"IDP_BUSINESS_PROFILE"
-);
+function closeProfile() {
 
-if(existing){
-
-try{
-
-profile=
-JSON.parse(existing);
-
-}catch(e){}
+    document
+        .getElementById("profileModal")
+        .classList.remove("show");
 
 }
 
-updateUI();
+
+/*
+Reserve pixel.
+
+Currently demo only.
+Spring Boot + payment will be connected later.
+*/
+
+function reservePixel() {
+
+    if (!selectedPixel) {
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Selected Pixel: " +
+        selectedPixel.pixelNumber +
+        "\nZone: " +
+        selectedPixel.zone +
+        "\nPrice: ₹" +
+        PRICES[selectedPixel.zone] +
+        "\n\nBooking & Payment API will be connected next."
+
+    );
+
+}
+
+
+/*
+Search company.
+*/
+
+function searchCompany() {
+
+    const value =
+        document
+            .getElementById("searchBox")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    document
+        .querySelectorAll(".pixel")
+        .forEach(pixel => {
+
+            const text =
+                pixel.textContent.toLowerCase();
+
+
+            pixel.style.opacity =
+                (!value || text.includes(value))
+                    ? "1"
+                    : ".15";
+
+        });
+
+}
+
+
+/*
+Scroll to pixel wall.
+*/
+
+function goToWall() {
+
+    document
+        .getElementById(
+            "pixelWallSection"
+        )
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/*
+Close modal when clicking outside.
+*/
+
+document
+    .getElementById("profileModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeProfile();
+
+            }
+
+        }
+    );
+
+
+/*
+Initialize.
+*/
+
+createPixelWall();
 
 </script>
 
